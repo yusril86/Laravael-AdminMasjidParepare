@@ -35,7 +35,7 @@
                     <strong>Tambah Berita Info Aplikasi</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('info') }} " class="btn btn-secondary btn-sm">
+                    <a href=" {{ url ('admin/info') }} " class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -44,21 +44,25 @@
 
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action=" {{ url('info/'.$info->id) }} " method="POST">
+                        <form action=" {{ url('admin/info/'.$info->id) }} " method="POST">
                             @method('patch')
                             @csrf
                             <div class="form-group">
-                                <label>Nama Info</label>
-                                <input type="text" name="nama" class="form-control" value=" {{$info->nama}} " autofocus required>
+                                <label>Nama Kontak</label>
+                                <input type="text" name="nama_kontak" class="form-control" value=" {{$info->nama_kontak}} " autofocus required>
                             </div>
                             <div class="form-group">
-                                <label>Deskripsi</label>
-                                <textarea name="deskripsi" class="form-control" required>{{$info->deskripsi}}</textarea>
+                                <label>Nomor Hp</label>
+                                <textarea name="no_hp" class="form-control" required>{{$info->no_hp}}</textarea>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label>Tanggal Pembaruan</label>
                             <input type="date" name="tanggal" class="form-control" value="{{$info->tgl_pembaruan}}" required>
                             </div>
+                            <div class="form-group">
+                                <label>Upload Gambar</label>
+                                <input type="file" name="logo" class="form-control" alt="{{ asset ('storage/'.$data->logo)}}" required>
+                            </div> --}}
                             <button type="submit" class="btn btn-success">Simpan</button>
                         </form>
                     </div>

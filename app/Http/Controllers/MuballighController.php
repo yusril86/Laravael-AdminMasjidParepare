@@ -9,7 +9,7 @@ class MuballighController extends Controller
 {
     public function data ()
     {
-        $penceramah = DB::table('penceramah')->paginate(2);
+        $penceramah = DB::table('penceramah')->paginate(5);
         // return $penceramah;
 
         return view('muballigh.data', ['penceramah' => $penceramah]);
@@ -31,7 +31,7 @@ class MuballighController extends Controller
             'alamat_penceramah' => $request->alamat, 
             'jenis_acara' => $request->jenisAcara 
         ]);
-        return redirect('muballigh')->with('status', 'Data Berhasil ditambahkan!');
+        return redirect('admin/muballigh')->with('status', 'Data Berhasil ditambahkan!');
     }
 
 
@@ -54,7 +54,7 @@ class MuballighController extends Controller
             'alamat_penceramah' => $request->alamat,
             'jenis_acara' => $request->jenisAcara 
         ]);
-       return redirect('muballigh')->with('status', 'Data Berhasil Diubah!');
+       return redirect('admin/muballigh')->with('status', 'Data Berhasil Diubah!');
     }
 
 
@@ -62,7 +62,7 @@ class MuballighController extends Controller
     public function delete($id)
     {
         DB::table('penceramah')->where('id', $id)->delete();
-        return redirect('muballigh')->with('status', 'Data Berhasil Dihapus!');
+        return redirect('admin/muballigh')->with('status', 'Data Berhasil Dihapus!');
     }
 
     

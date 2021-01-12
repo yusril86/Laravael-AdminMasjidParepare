@@ -27,7 +27,7 @@ class VideoController extends Controller
             'judul'=>$request->judul,
             'link'=>$request->link
         ]);
-        return redirect('video')->with('status','Data Berhasil Ditambahkan !!');
+        return redirect('admin/video')->with('status','Data Berhasil Ditambahkan !!');
     }
 
     public function edit($id)
@@ -43,13 +43,13 @@ class VideoController extends Controller
             'judul' => $request->judul,
             'link'=>$request->link
         ]);
-        return redirect('video')->with('status','Data Berhasil Diubah !!');
+        return redirect('admin/video')->with('status','Data Berhasil Diubah !!');
     }
 
     public function delete($id)
     {
         DB::table('video')->where('id',$id)->delete();
-        return redirect('video')->with('status', 'Data Berhasil Dihapus!');
+        return redirect('admin/video')->with('status', 'Data Berhasil Dihapus!');
     }
 
     public function api ()

@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title') Admin Masjid Parepare</title>
+    <title>@yield('title') FKMPM-PAREPARE</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -29,7 +29,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="">Admin Masjid Parepare</a>
+                <a class="navbar-brand" href="">FK-MPM Parepare</a>
                 <a class="navbar-brand hidden" href="">M</a>
             </div>
 
@@ -39,20 +39,24 @@
                         <a href="{{ url('home') }}"> <i class="menu-icon fa fa-home"></i>Home </a>
                     </li>
                     <li>
-                        <a href="{{ url('muballigh')}} "> <i class="menu-icon fa fa-user"></i>Muballigh </a>
+                        <a href="{{ url('admin/muballigh')}} "> <i class="menu-icon fa fa-user"></i>Muballigh </a>
                     </li>
                     <li>
-                        <a href="{{url('masjid')}} "> <i class="menu-icon fa fa-building"></i>Masjid </a>
+                        <a href="{{url('admin/masjid')}} "> <i class="menu-icon fa fa-building"></i>Masjid </a>
                     </li>
                     <li>
-                        <a href="{{url('berita')}} "> <i class="menu-icon fa fa-puzzle-piece"></i>Berita </a>
+                        <a href="{{url('admin/berita')}} "> <i class="menu-icon fa fa-puzzle-piece"></i>Berita </a>
                     </li>
                     <li>
-                        <a href="{{url('video')}} "> <i class="menu-icon fa fa-youtube-play"></i>Video </a>
+                        <a href="{{url('admin/video')}} "> <i class="menu-icon fa fa-youtube-play"></i>Video </a>
                     </li>
                     <li>
-                        <a href="{{url('info')}} "> <i class="menu-icon fa fa-info-circle"></i>Info Aplikasi </a>
+                        <a href="{{url('admin/info')}} "> <i class="menu-icon fa fa-info-circle"></i>Info Kontak </a>
                     </li>
+                    <li>
+                        <a href="{{url('admin/mimbar')}} "> <i class="menu-icon fa fa-info-circle"></i>Mimbar Jum'at </a>
+                    </li>
+                
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -94,15 +98,25 @@
                 <div class="col-sm-5">
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="{{ asset('style/images/admin.jpg') }}">
+                            <img class="user-avatar rounded-circle" src="{{ asset('style/images/logo.png') }}">
                         </a>
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                            {{-- <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a> --}}
+
+                            <a class="nav-link" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">
+                            <i class="fa fa-power -off"></i>Logout</a>
+                         </a>
+
+                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                             @csrf
+                         </form>
                         </div>
                     </div>
 
-                    <div class="language-select dropdown" id="language-select">
+                    <!--<div class="language-select dropdown" id="language-select">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
                             <i class="flag-icon flag-icon-id"></i>
                         </a>
@@ -120,7 +134,7 @@
                                 <i class="flag-icon flag-icon-jp"></i>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
                 </div>
             </div>

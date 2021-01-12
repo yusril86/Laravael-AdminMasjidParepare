@@ -41,7 +41,7 @@
                     <strong> Video Masjid Kota Parepare</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('video/add') }} " class="btn btn-success btn-sm">
+                    <a href=" {{ url ('admin/video/add') }} " class="btn btn-success btn-sm">
                         <i class="fa fa-plus"></i>Add
                     </a>
                 </div>
@@ -63,10 +63,10 @@
                             <td>{{ $item -> judul }}</td>
                             <td>{{ $item -> link }}</td>
                             <td class="text-center">
-                                <a href="{{ url('video/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
+                                <a href="{{ url('admin/video/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <form action="{{ url('video/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('konfirmasi Hapus Data ?')">
+                                <form action="{{ url('admin/video/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('konfirmasi Hapus Data ?')">
                                     @method('delete')
                                     @csrf
                                     <button class="btn btn-danger btn-sm">

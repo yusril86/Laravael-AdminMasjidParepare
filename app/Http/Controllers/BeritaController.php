@@ -36,7 +36,7 @@ class BeritaController extends Controller
             'file' => $request->file('file')->store('files')
         ]);
 
-        return redirect('berita')->with('status','Data Berhasil Ditambah');
+        return redirect('admin/berita')->with('status','Data Berhasil Ditambah');
     }
 
     public function edit($id)
@@ -63,14 +63,14 @@ class BeritaController extends Controller
             'file' =>$image
         ]);
 
-        return redirect('berita')->with('status','Data Berhasil Diubah!');
+        return redirect('admin/berita')->with('status','Data Berhasil Diubah!');
     }
 
     public function delete($id)
     {
         DB::table('berita')->where('id',$id)->delete();
 
-        return redirect('berita')->with('status','Data Berhasil Dihapus!'); 
+        return redirect('admin/berita')->with('status','Data Berhasil Dihapus!'); 
     }
 
     public function api ()

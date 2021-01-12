@@ -35,7 +35,7 @@
                     <strong>Edit Data Muballigh</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('muballigh') }} " class="btn btn-secondary btn-sm">
+                    <a href=" {{ url ('admin/muballigh') }} " class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action=" {{ url('muballigh/'.$data->id) }} " method="POST">
+                        <form action=" {{ url('admin/muballigh/'.$data->id) }} " method="POST">
                             @method('patch')
                             @csrf
                             <div class="form-group">
@@ -57,11 +57,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Alamat Penceramah</label>
-                                <input type="text" name="alamat" class="form-control" value="{{ $data->alamat_penceramah}}" required>
+                                <input type="text" name="alamat" class="form-control" value="{{ $data->alamat_penceramah}}">
                             </div>
                             <div class="form-group">
                                 <label>Jenis Acara</label>
-                                <input type="text" name="jenisAcara" class="form-control" value="{{ $data->jenis_acara}}" required>
+                                <input type="text" name="jenisAcara" class="form-control" value="{{ $data->jenis_acara}}">
                             </div>
                             <button type="submit" class="btn btn-success">Simpan</button>
                         </form>

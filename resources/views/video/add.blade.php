@@ -35,7 +35,7 @@
                     <strong>Tambah Video</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('video') }} " class="btn btn-secondary btn-sm">
+                    <a href=" {{ url ('admin/video') }} " class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action=" {{ url('video') }} " method="POST">
+                        <form action=" {{ url('admin/video') }} " method="POST">
                             @csrf
                             <div class="form-group">
                                 <label>Judul Video</label>

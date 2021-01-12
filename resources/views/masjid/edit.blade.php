@@ -35,7 +35,7 @@
                     <strong>Edit Data Masjid</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('masjid') }} " class="btn btn-secondary btn-sm">
+                    <a href=" {{ url ('admin/masjid') }} " class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action=" {{ url('masjid/'.$data->id) }} " method="POST">
+                        <form action=" {{ url('admin/masjid/'.$data->id) }} " method="POST" enctype="multipart/form-data">
                             @method('patch')
                             @csrf
                             <div class="form-group">
@@ -57,15 +57,27 @@
                             </div>
                             <div class="form-group">
                                 <label>Nama Pengurus Masjid</label>
-                                <input type="text" name="namaPengurus" class="form-control" value="{{ $data->nama_pengurus}}" required>
+                                <input type="text" name="namaPengurus" class="form-control" value="{{ $data->nama_pengurus}}">
                             </div>
                             <div class="form-group">
                                 <label>Nomor HP Pengurus</label>
-                                <input type="text" name="nomorPengurus" class="form-control" value="{{ $data->no_pengurus}}" required>
+                                <input type="text" name="nomorPengurus" class="form-control" value="{{ $data->no_pengurus}}">
                             </div>
                             <div class="form-group">
                                 <label>Koordinat</label>
-                                <input type="text" name="koordinat" class="form-control" value="{{ $data->koordinat}}" required>
+                                <input type="text" name="koordinat" class="form-control" value="{{ $data->koordinat}}">
+                            </div>
+                            <div class="form-group">
+                                <label>Kelurahan</label>
+                                <input type="text" name="kelurahan" class="form-control" value="{{ $data->kelurahan}}">
+                            </div>
+                            <div class="form-group">
+                                <label>kecamatan</label>
+                                <input type="text" name="kecamatan" class="form-control" value="{{ $data->kecamatan}}">
+                            </div>
+                            <div class="form-group">
+                                <label>Upload Gambar</label>
+                                <input type="file" name="gambar" class="form-control" alt="{{ asset ('storage/'.$data->gambar)}}" required>
                             </div>
                             <button type="submit" class="btn btn-success">Simpan</button>
                         </form>

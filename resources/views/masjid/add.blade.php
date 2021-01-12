@@ -35,7 +35,7 @@
                     <strong>Tambah Masjid</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('masjid') }} " class="btn btn-secondary btn-sm">
+                    <a href=" {{ url ('admin/masjid') }} " class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action=" {{ url('masjid') }} " method="POST">
+                        <form action=" {{ url('admin/masjid') }} " method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Nama Masjid</label>
@@ -56,15 +56,27 @@
                             </div>
                             <div class="form-group">
                                 <label>Nama Pengurus Masjid</label>
-                                <input type="text" name="namaPengurus" class="form-control" required>
+                                <input type="text" name="namaPengurus" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Nomor Pengurus Masjid</label>
-                                <input type="text" name="nomorPengurus" class="form-control" required>
+                                <input type="text" name="nomorPengurus" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Koordinat</label>
-                                <input type="text" name="koordinat" class="form-control" required>
+                                <input type="text" name="koordinat" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Kelurahan</label>
+                                <input type="text" name="kelurahan" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Kecamatan</label>
+                                <input type="text" name="kecamatan" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>gambar</label>
+                                <input type="file" name="gambar" class="form-control" required>
                             </div>
                             <button type="submit" class="btn btn-success">Simpan</button>
                         </form>

@@ -25,3 +25,7 @@ Route::get('masjid-api','MasjidController@api');
 Route::get('berita-api','BeritaController@api');
 
 Route::get('video-api','VideoController@api');
+
+Route::get('info-api','InfoController@api');
+
+Route::get('mimbar-api','MimbarJumatController@api');

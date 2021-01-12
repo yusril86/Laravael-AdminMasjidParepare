@@ -35,7 +35,7 @@
                     <strong>Tambah Berita Masjid</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('berita') }} " class="btn btn-secondary btn-sm">
+                    <a href=" {{ url ('admin/berita') }} " class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -44,15 +44,15 @@
 
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action=" {{ url('berita') }} " method="POST" enctype="multipart/form-data">
+                        <form action=" {{ url('admin/berita') }} " method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Nama Berita</label>
-                                <input type="text" name="nama" class="form-control" autofocus required>
+                                <input type="text" name="nama" class="form-control form-control-lg" autofocus required>
                             </div>
                             <div class="form-group">
                                 <label>Deskripsi</label>
-                                <textarea name="deskripsi" class="form-control" required></textarea>
+                                <textarea name="deskripsi" class="form-control form-control-lg" style="width: 500px; height: 200px;"  required></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Berita</label>

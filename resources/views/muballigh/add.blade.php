@@ -35,7 +35,7 @@
                     <strong>Tambah Muballigh</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('muballigh') }} " class="btn btn-secondary btn-sm">
+                    <a href=" {{ url ('admin/muballigh') }} " class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action=" {{ url('muballigh') }} " method="POST">
+                        <form action=" {{ url('admin/muballigh') }} " method="POST">
                             @csrf
                             <div class="form-group">
                                 <label>Nama Penceramah</label>
@@ -56,11 +56,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Alamat Penceramah</label>
-                                <input type="text" name="alamat" class="form-control" required>
+                                <input type="text" name="alamat" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label>Jenis Acara</label>
-                                <input type="text" name="jenisAcara" class="form-control" required>
+                                <input type="text" name="jenisAcara" class="form-control">
                             </div>
                             <button type="submit" class="btn btn-success">Simpan</button>
                         </form>

@@ -41,7 +41,7 @@
                     <strong>Data Masjid Kota Parepare</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('masjid/add') }} " class="btn btn-success btn-sm">
+                    <a href=" {{ url ('admin/masjid/add') }} " class="btn btn-success btn-sm">
                         <i class="fa fa-plus"></i>Add
                     </a>
                 </div>
@@ -56,6 +56,8 @@
                             <th>Nama Pengurus Masjid</th>
                             <th>Nomor Pengurus</th>
                             <th>Koordinat</th>
+                            <th>Kelurahan</th>
+                            <th>Kecamatan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -68,11 +70,16 @@
                             <td>{{ $item -> nama_pengurus }}</td>
                             <td>{{ $item -> no_pengurus }}</td>
                             <td>{{ $item -> koordinat }}</td>
+                            <td>{{ $item -> kelurahan }}</td>
+                            <td>{{ $item -> kecamatan }}</td>
                             <td class="text-center">
-                                <a href="{{ url('masjid/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
+                                <a href="{{ url('admin/masjid/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <form action="{{ url('masjid/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('konfirmasi Hapus Data ?')">
+                                <a href="{{ url('admin/masjid/showphoto/'.$item->id) }}" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-image"></i>
+                                </a>
+                                <form action="{{ url('admin/masjid/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('konfirmasi Hapus Data ?')">
                                     @method('delete')
                                     @csrf
                                     <button class="btn btn-danger btn-sm">

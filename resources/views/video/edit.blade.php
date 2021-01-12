@@ -16,7 +16,7 @@
             <div class="page-title">
                 <ol class="breadcrumb text-right">
                     <li><a href="#">Video</a></li>
-                    <li class="active">Add</li>
+                    <li class="active">Edit</li>
                 </ol>
             </div>
         </div>
@@ -35,7 +35,7 @@
                     <strong>Tambah Video</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('video') }} " class="btn btn-secondary btn-sm">
+                    <a href=" {{ url ('admin/video') }} " class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action=" {{ url('video/'.$video->id) }} " method="POST">
+                        <form action=" {{ url('admin/video/'.$video->id) }} " method="POST">
                             @method('patch');
                             @csrf
                             <div class="form-group">

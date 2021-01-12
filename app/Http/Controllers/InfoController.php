@@ -30,7 +30,7 @@ class InfoController extends Controller
             'logo' => $request->file('logo')->store('logos')
         ]);
 
-        return redirect('info')->with('status','Data Berhasil ditambahkan');
+        return redirect('admin/info')->with('status','Data Berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -42,21 +42,41 @@ class InfoController extends Controller
 
     public function editProses(Request $request,$id)
     {
+        /* if ($request->file('logo'))
+        {
+            Storage::delete('logos/'.$request->file('logo'));
+        } */
+
+        /* $image= $request->file('logo')->store('logos'); */
         DB::table('info')->where('id',$id)
         ->update([
-            'nama'=>$request->nama,
-            'deskripsi'=>$request->deskripsi,
-            'tgl_pembaruan'=>$request->tanggal
+            'nama_kontak'=>$request->nama_kontak,
+            'no_hp'=>$request->no_hp
+            // 'tgl_pembaruan'=>$request->tanggal,
+           /*  'logo'=>$request->$image */
         ]);
 
-        return redirect('info')->with('status','Data Berhasil Diubah');
+        return redirect('admin/info')->with('status','Data Berhasil Diubah');
     }
 
     public function hapus($id)
     {
         DB::table('info')->where('id',$id)->delete();
 
-        return redirect ('info')->with('status','Data Berhsil Dihapus!');
+        return redirect ('admin/info')->with('status','Data Berhsil Dihapus!');
     }
+
+    public function tampilgambar($id)
+    {
+        $info = DB::table('info')->where('id',$id)->first();
+        return view('info/showphoto' ,compact('info'));
+    }
+
+    public function api ()
+    {
+        $info = DB::table('info')->get();
+        return response()->json($info);
+    }
+    
 
 }

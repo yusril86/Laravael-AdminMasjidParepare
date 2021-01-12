@@ -35,7 +35,7 @@
                     <strong>Gambar Berita</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('berita') }} " class="btn btn-secondary btn-sm">
+                    <a href=" {{ url ('admin/berita') }} " class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>

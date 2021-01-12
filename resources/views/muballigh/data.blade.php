@@ -41,7 +41,7 @@
                     <strong>Data Muballigh Kota Parepare</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('muballigh/add') }} " class="btn btn-success btn-sm">
+                    <a href=" {{ url ('admin/muballigh/add') }} " class="btn btn-success btn-sm">
                         <i class="fa fa-plus"></i>Add
                     </a>
                 </div>
@@ -67,10 +67,10 @@
                             <td>{{ $item -> alamat_penceramah }}</td>
                             <td>{{ $item -> jenis_acara }}</td>
                             <td class="text-center">
-                                <a href="{{ url('muballigh/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
+                                <a href="{{ url('admin/muballigh/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <form action="{{ url('muballigh/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('konfirmasi Hapus Data ?')">
+                                <form action="{{ url('admin/muballigh/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('konfirmasi Hapus Data ?')">
                                     @method('delete')
                                     @csrf
                                     <button class="btn btn-danger btn-sm">

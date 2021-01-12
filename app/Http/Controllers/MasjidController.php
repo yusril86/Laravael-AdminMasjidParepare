@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class MasjidController extends Controller
 {
@@ -19,6 +20,13 @@ class MasjidController extends Controller
         return view('masjid.add');
     }
 
+    public function tampilgambar($id)
+    {
+        $masjid = DB::table('masjid')->where('id',$id)->first();
+        // dd($berita);
+        return view('masjid/showphoto',compact('masjid'));
+    }
+
     public function tambahProses(Request $request)
     {
         DB::table('masjid')->insert([
@@ -26,9 +34,12 @@ class MasjidController extends Controller
             'alamat_masjid' => $request->alamat,
             'nama_pengurus' => $request->namaPengurus, 
             'no_pengurus' => $request->nomorPengurus, 
-            'koordinat' => $request->koordinat 
+            'koordinat' => $request->koordinat, 
+            'kelurahan' => $request->kelurahan, 
+            'kecamatan' => $request->kecamatan, 
+            'gambar' => $request->file('gambar')->store('masjid')
         ]);
-        return redirect('masjid')->with('status', 'Data Berhasil ditambahkan!');
+        return redirect('admin/masjid')->with('status', 'Data Berhasil ditambahkan!');
     }
 
     public function edit($id)
@@ -39,22 +50,32 @@ class MasjidController extends Controller
 
     public function editProses(Request $request, $id)
     {
+        if ($request->file('gambar'))
+        {
+            Storage::delete('masjid/'.$request->file('gambar'));
+        }
+
+        $image= $request->file('gambar')->store('masjid');
+
           DB::table('masjid')->where('id',$id)
          ->update([
             'nama_masjid' => $request->nama,
             'alamat_masjid' => $request->alamat,
             'nama_pengurus' => $request->namaPengurus, 
             'no_pengurus' => $request->nomorPengurus, 
-            'koordinat' => $request->koordinat 
+            'koordinat' => $request->koordinat, 
+            'kelurahan' => $request->kelurahan, 
+            'kecamatan' => $request->kecamatan,
+            'gambar' => $image 
          ]);
             
-         return redirect('masjid')->with('status', 'Data Berhasil ubah!');
+         return redirect('admin/masjid')->with('status', 'Data Berhasil ubah!');
     }
 
     public function delete($id)
     {
         DB::table('masjid')->where('id',$id)->delete();
-        return redirect('masjid')->with('status', 'Data Berhasil Dihapus!');
+        return redirect('admin/masjid')->with('status', 'Data Berhasil Dihapus!');
     }
 
 

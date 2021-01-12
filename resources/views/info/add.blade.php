@@ -35,7 +35,7 @@
                     <strong>Tambah Berita Info Aplikasi</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('info') }} " class="btn btn-secondary btn-sm">
+                    <a href=" {{ url ('admin/info') }} " class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action=" {{ url('info') }} " method="POST" enctype="multipart/form-data">
+                        <form action=" {{ url('admin/info') }} " method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Nama Info</label>

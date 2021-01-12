@@ -35,7 +35,7 @@
                     <strong>Edit Berita Masjid</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('berita') }} " class="btn btn-secondary btn-sm">
+                    <a href=" {{ url ('admin/berita') }} " class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action=" {{ url('berita/'.$data->id) }} " method="POST" enctype="multipart/form-data">
+                        <form action=" {{ url('admin/mimbar/'.$data->id) }} " method="POST" enctype="multipart/form-data">
                             @method('patch')
                             @csrf
                             <div class="form-group">
@@ -53,7 +53,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Deskripsi</label>
-                            <textarea name="deskripsi" class="form-control" required>{{ $data->deskripsi}}</textarea>
+                            <textarea name="deskripsi" class="form-control" style="width: 500px; height: 200px;" required>{{ $data->deskripsi}}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Berita</label>

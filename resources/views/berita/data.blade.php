@@ -41,7 +41,7 @@
                     <strong> Berita Masjid Kota Parepare</strong>
                 </div>
                 <div class="pull-right">
-                    <a href=" {{ url ('berita/add') }} " class="btn btn-success btn-sm">
+                    <a href=" {{ url ('admin/berita/add') }} " class="btn btn-success btn-sm">
                         <i class="fa fa-plus"></i>Add
                     </a>
                 </div>
@@ -65,13 +65,13 @@
                             <td>{{ $item -> deskripsi }}</td>
                             <td>{{ $item -> tgl_berita }}</td>
                             <td class="text-center">
-                                <a href="{{ url('berita/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
+                                <a href="{{ url('admin/berita/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <a href="{{ url('berita/showphoto/'.$item->id) }}" class="btn btn-primary btn-sm">
+                                <a href="{{ url('admin/berita/showphoto/'.$item->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-image"></i>
                                 </a>
-                                <form action="{{ url('berita/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('konfirmasi Hapus Data ?')">
+                                <form action="{{ url('admin/berita/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('konfirmasi Hapus Data ?')">
                                     @method('delete')
                                     @csrf
                                     <button class="btn btn-danger btn-sm">

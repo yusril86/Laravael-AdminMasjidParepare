@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2020 at 10:53 PM
+-- Generation Time: Aug 02, 2020 at 10:31 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.13
 
@@ -32,16 +32,17 @@ CREATE TABLE `berita` (
   `id` int(11) NOT NULL,
   `nama_berita` varchar(100) NOT NULL,
   `deskripsi` varchar(100) NOT NULL,
-  `tgl_berita` varchar(100) NOT NULL
+  `tgl_berita` varchar(100) NOT NULL,
+  `file` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `berita`
 --
 
-INSERT INTO `berita` (`id`, `nama_berita`, `deskripsi`, `tgl_berita`) VALUES
-(1, 'Gotong Royong', 'membersihkan halaman', '2020-07-21'),
-(2, 'Jumat Bersih', 'jumat Membersihkan', '2020-10-11');
+INSERT INTO `berita` (`id`, `nama_berita`, `deskripsi`, `tgl_berita`, `file`) VALUES
+(4, 'Tes gambar', 'Gambar', '2020-07-07', 'files/TwlRxrqlEokAHLNSQG3dwNYkD0nGiOsfMfLjVQuz.png'),
+(5, 'Gotong Royong', 'Membersihkan', '2020-07-25', 'files/uSMzElcmPwOV0nSvIaNiYGVfYBD2CyhsPQGg12ie.jpeg');
 
 -- --------------------------------------------------------
 
@@ -53,16 +54,19 @@ CREATE TABLE `info` (
   `id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `deskripsi` varchar(100) NOT NULL,
-  `tgl_pembaruan` varchar(100) NOT NULL
+  `tgl_pembaruan` varchar(100) NOT NULL,
+  `logo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `info`
 --
 
-INSERT INTO `info` (`id`, `nama`, `deskripsi`, `tgl_pembaruan`) VALUES
-(1, 'Ganti Judul', 'versi 1.1.1', '2020-07-23'),
-(2, 'Ganti Logo', 'Logo terbaru', '2020-07-19');
+INSERT INTO `info` (`id`, `nama`, `deskripsi`, `tgl_pembaruan`, `logo`) VALUES
+(1, 'Ganti Judul', 'versi 1.1.1', '2020-07-23', ''),
+(2, 'Ganti Logo', 'Logo terbaru', '2020-07-19', ''),
+(3, 'Logo gambar', 'Tes logo', '2020-07-17', 'logos/TcvRNafevqE6UlR35HfdELWXbnzpL0iKi7mSVQXt.png'),
+(4, 'TEsss', 'ookkk', '2020-07-23', 'logos/CjsPH9HbpQLnqFHAGz1UCqpqUCzS5rerX0kJpYFF.jpeg');
 
 -- --------------------------------------------------------
 
@@ -126,10 +130,10 @@ INSERT INTO `penceramah` (`id`, `nama_penceramah`, `nomor_telepon_penceramah`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -141,11 +145,11 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'yusril', 'yusril@yusril.com', NULL, '123456', NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'admin@admin.com', NULL, '$2y$10$PmCJECW0a1TZ3VzwaeoI9e0SSDmt9OF1MEslRrDnWweHQjkizL9UK', NULL, '2020-07-29 10:36:14', '2020-07-29 10:36:14');
 
 -- --------------------------------------------------------
 
@@ -202,9 +206,9 @@ ALTER TABLE `penceramah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -221,13 +225,13 @@ ALTER TABLE `video`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `info`
 --
 ALTER TABLE `info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `masjid`
@@ -248,9 +252,9 @@ ALTER TABLE `penceramah`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
