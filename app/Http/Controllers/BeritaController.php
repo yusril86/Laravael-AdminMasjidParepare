@@ -29,11 +29,15 @@ class BeritaController extends Controller
 
     public function tambahProses(Request $request)
     {
+        $image = time().'.'.$request-> file->extension();
+        $request ->file->move(public_path('berita'),$image) ;
+
         DB::table('berita')->insert([
             'nama_berita' => $request->nama,
             'deskripsi' =>$request->deskripsi,
             'tgl_berita'=> $request->tanggal,
-            'file' => $request->file('file')->store('files')
+            'file' => $image
+            // 'file' => $request->file('file')->store('files')
         ]);
 
         return redirect('admin/berita')->with('status','Data Berhasil Ditambah');
@@ -53,7 +57,9 @@ class BeritaController extends Controller
             Storage::delete('files/'.$request->file('file'));
         }
 
-        $image= $request->file('file')->store('files');
+        // $image= $request->file('file')->store('files');
+        $image = time().'.'.$request-> file->extension();
+        $request ->file->move(public_path('berita'),$image) ;
 
         DB::table('berita')->where('id',$id)
         ->update([

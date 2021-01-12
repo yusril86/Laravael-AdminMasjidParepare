@@ -35,7 +35,7 @@ class MimbarJumatController extends Controller
     public function editProses(Request $request ,$id)
     {
 
-        DB::table('berita')->where('id',$id)
+        DB::table('mimbar')->where('id',$id)
         ->update([
             'nama_berita' => $request->nama,
             'deskripsi' =>$request->deskripsi,

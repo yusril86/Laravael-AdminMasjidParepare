@@ -44,7 +44,7 @@
 
                 <div class="row">
                     <div class="col-md-4 offset-md-4">
-                        <form action=" {{ url('admin/mimbar/'.$data->id) }} " method="POST" enctype="multipart/form-data">
+                        <form action=" {{ url('admin/berita/'.$data->id) }} " method="POST" enctype="multipart/form-data">
                             @method('patch')
                             @csrf
                             <div class="form-group">

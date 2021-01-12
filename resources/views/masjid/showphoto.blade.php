@@ -54,7 +54,8 @@
 
                                  {{-- //ini untuk menampilkan 1 data
                                  {{--  --}}
-                                 <img src="{{ asset ('storage/'.$masjid->gambar)}}"  alt="{{ $masjid->gambar }}">
+                                 <img src="{{ URL::to('/').'/masjid/'.$masjid->gambar }}"  alt="{{ $masjid->gambar }}" />
+                                 {{-- <img src="{{ asset ('storage/'.$masjid->gambar)}}"  alt="{{ $masjid->gambar }}"> --}}
     
                      </tbody>
                  </table>

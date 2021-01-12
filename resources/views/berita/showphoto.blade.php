@@ -54,7 +54,8 @@
 
                                  {{-- //ini untuk menampilkan 1 data
                                  {{--  --}}
-                                 <img src="{{ asset ('storage/'.$berita->file)}}"  alt="{{ $berita->file }}">
+                                 <img src="{{ URL::to('/').'/berita/'.$berita->file }}"  alt="{{ $berita->file }}" />
+                                 {{-- <img src="{{ asset ('storage/'.$berita->file)}}"  alt="{{ $berita->file }}"> --}}
     
                      </tbody>
                  </table>

@@ -29,6 +29,8 @@ class MasjidController extends Controller
 
     public function tambahProses(Request $request)
     {
+        $image = time().'.'.$request-> gambar->extension();
+        $request ->gambar->move(public_path('masjid'),$image) ;
         DB::table('masjid')->insert([
             'nama_masjid' => $request->nama,
             'alamat_masjid' => $request->alamat,
@@ -37,7 +39,8 @@ class MasjidController extends Controller
             'koordinat' => $request->koordinat, 
             'kelurahan' => $request->kelurahan, 
             'kecamatan' => $request->kecamatan, 
-            'gambar' => $request->file('gambar')->store('masjid')
+            'gambar' => $image
+            // 'gambar' => $request->file('gambar')->store('masjid')
         ]);
         return redirect('admin/masjid')->with('status', 'Data Berhasil ditambahkan!');
     }
@@ -55,7 +58,9 @@ class MasjidController extends Controller
             Storage::delete('masjid/'.$request->file('gambar'));
         }
 
-        $image= $request->file('gambar')->store('masjid');
+        // $image= $request->file('gambar')->store('masjid');
+        $image = time().'.'.$request-> file->extension();
+        $request ->file->move(public_path('masjid'),$image) ;
 
           DB::table('masjid')->where('id',$id)
          ->update([
