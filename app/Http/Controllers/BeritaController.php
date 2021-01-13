@@ -79,6 +79,20 @@ class BeritaController extends Controller
         return redirect('admin/berita')->with('status','Data Berhasil Dihapus!'); 
     }
 
+    public function cari(Request $request)
+    {
+	// menangkap data pencarian
+	$cari = $request->cari;
+ 
+ 	// mengambil data dari table berita sesuai pencarian data
+	$berita = DB::table('berita')
+	->where('nama_berita','like',"%".$cari."%")
+	->paginate();
+ 
+    	// mengirim data berita ke view index
+    return view('berita.data',['berita' => $berita]);
+    }
+
     public function api ()
     {
         $berita = DB::table('berita')->get();

@@ -22,6 +22,16 @@
         </div>
     </div>
 </div>
+<form action="{{ url('admin/muballigh/cari') }}" method="GET">
+    <div class="input-group" style="padding: 20px">
+        <input type="text" class="form-control" name="cari"value="{{ old('cari') }}"
+            placeholder="Cari  Muballigh">  <span class="input-group-btn">
+            <button type="submit" class="btn btn-default" value="CARI">
+                <span class="glyphicon glyphicon-search"><i class="fa fa-search"></i></span>
+            </button>
+        </span>
+    </div>
+</form>
 @endsection
 
 @section('content')

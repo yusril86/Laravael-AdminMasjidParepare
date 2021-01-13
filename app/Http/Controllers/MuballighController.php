@@ -65,7 +65,19 @@ class MuballighController extends Controller
         return redirect('admin/muballigh')->with('status', 'Data Berhasil Dihapus!');
     }
 
-    
+    public function cari(Request $request)
+    {
+	// menangkap data pencarian
+	$cari = $request->cari;
+ 
+ 	// mengambil data dari table berita sesuai pencarian data
+	$penceramah = DB::table('penceramah')
+	->where('nama_penceramah','like',"%".$cari."%")
+	->paginate();
+ 
+    	// mengirim data berita ke view index
+    return view('muballigh.data',['penceramah' => $penceramah]);
+    }
 
     public function api ()
     {

@@ -37,6 +37,7 @@ Route::post('/muballigh', 'MuballighController@addProcess');
 Route::get('/muballigh/edit/{id}', 'MuballighController@edit');
 Route::patch('/muballigh/{id}', 'MuballighController@editProcess');
 Route::delete('/muballigh/{id}', 'MuballighController@delete');
+Route::get('/muballigh/cari','MuballighController@cari');
 
 // Masjid
 Route::get('/masjid','MasjidController@tampilData');
@@ -46,9 +47,11 @@ Route::post('/masjid','MasjidController@tambahProses');
 Route::get('/masjid/edit/{id}','MasjidController@edit');
 Route::patch('/masjid/{id}', 'MasjidController@editProses');
 Route::delete('/masjid/{id}', 'MasjidController@delete');
+Route::get('/masjid/cari','MasjidController@cari');
 
 //Berita
 Route::get('/berita','BeritaController@tampil');
+Route::get('/berita/cari','BeritaController@cari');
 Route::get('/berita/add','BeritaController@tambah');
 Route::get('/berita/showphoto/{id}','BeritaController@tampilgambar');
 Route::post('/berita','BeritaController@tambahProses');
@@ -58,6 +61,7 @@ Route::delete('/berita/{id}','BeritaController@delete');
 
 //Video
 Route::get('/video','VideoController@tampil');
+Route::get('/video/cari','VideoController@cari');
 Route::get('/video/add','VideoController@add');
 Route::post('/video','VideoController@addProcess');
 Route::get('/video/edit/{id}','VideoController@edit');
@@ -72,9 +76,11 @@ Route::get('/info/edit/{id}','InfoController@edit');
 Route::patch('/info/{id}','InfoController@editProses');
 Route::delete('/info/{id}','InfoController@hapus');
 Route::get('/info/showphoto/{id}','InfoController@tampilgambar');
+Route::get('/info/cari','InfoController@cari');
 
 //MimbarJumat
 Route::get('/mimbar','MimbarJumatController@tampilData');
+Route::get('/mimbar/cari','MimbarJumatController@cari');
 Route::get('/mimbar/add','MimbarJumatController@tambah');
 Route::post('/mimbar','MimbarJumatController@tambahProses');
 Route::get('/mimbar/edit/{id}','MimbarJumatController@edit');

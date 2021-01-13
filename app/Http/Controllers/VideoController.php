@@ -51,6 +51,19 @@ class VideoController extends Controller
         DB::table('video')->where('id',$id)->delete();
         return redirect('admin/video')->with('status', 'Data Berhasil Dihapus!');
     }
+    public function cari(Request $request)
+    {
+	// menangkap data pencarian
+	$cari = $request->cari;
+ 
+ 	// mengambil data dari table berita sesuai pencarian data
+	$video = DB::table('video')
+	->where('judul','like',"%".$cari."%")
+	->paginate();
+ 
+    	// mengirim data video ke view index
+    return view('video.data',['video' => $video]);
+    }
 
     public function api ()
     {

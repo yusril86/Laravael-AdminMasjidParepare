@@ -49,6 +49,21 @@ class MimbarJumatController extends Controller
 
         return redirect('admin/mimbar')->with('status','Data Berhasil Dihapus!'); 
     }
+
+    public function cari(Request $request)
+    {
+	// menangkap data pencarian
+	$cari = $request->cari;
+ 
+ 	// mengambil data dari table berita sesuai pencarian data
+	$mimbar = DB::table('mimbar')
+	->where('nama_mimbar','like',"%".$cari."%")
+	->paginate();
+ 
+    	// mengirim data mimbar ke view index
+    return view('mimbar.data',['mimbar' => $mimbar]);
+    }
+
     public function api ()
     {
         $mimbar = DB::table('mimbar')->get();

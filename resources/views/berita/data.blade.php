@@ -11,6 +11,7 @@
             </div>
         </div>
     </div>
+
     <div class="col-sm-8">
         <div class="page-header float-right">
             <div class="page-title">
@@ -22,6 +23,16 @@
         </div>
     </div>
 </div>
+<form action="{{ url('admin/berita/cari') }}" method="GET">
+    <div class="input-group" style="padding: 20px">
+        <input type="text" class="form-control" name="cari"value="{{ old('cari') }}"
+            placeholder="Cari  Berita">  <span class="input-group-btn">
+            <button type="submit" class="btn btn-default" value="CARI">
+                <span class="glyphicon glyphicon-search"><i class="fa fa-search"></i></span>
+            </button>
+        </span>
+    </div>
+</form>
 @endsection
 
 @section('content')
@@ -34,6 +45,8 @@
                 {{ session('status') }}
             </div>
         @endif
+
+        
 
         <div class="card">
             <div class="card-header">

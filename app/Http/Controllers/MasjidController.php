@@ -83,6 +83,19 @@ class MasjidController extends Controller
         return redirect('admin/masjid')->with('status', 'Data Berhasil Dihapus!');
     }
 
+    public function cari(Request $request)
+    {
+	// menangkap data pencarian
+	$cari = $request->cari;
+ 
+ 	// mengambil data dari table berita sesuai pencarian data
+	$masjid = DB::table('masjid')
+	->where('nama_masjid','like',"%".$cari."%")
+	->paginate();
+ 
+    	// mengirim data berita ke view index
+    return view('masjid.data',['masjid' => $masjid]);
+    }
 
     public function api()
     {

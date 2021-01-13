@@ -72,6 +72,20 @@ class InfoController extends Controller
         return view('info/showphoto' ,compact('info'));
     }
 
+    public function cari(Request $request)
+    {
+	// menangkap data pencarian
+	$cari = $request->cari;
+ 
+ 	// mengambil data dari table berita sesuai pencarian data
+	$info = DB::table('info')
+	->where('nama_kontak','like',"%".$cari."%")
+	->paginate();
+ 
+    	// mengirim data info ke view index
+    return view('info.data',['info' => $info]);
+    }
+
     public function api ()
     {
         $info = DB::table('info')->get();
